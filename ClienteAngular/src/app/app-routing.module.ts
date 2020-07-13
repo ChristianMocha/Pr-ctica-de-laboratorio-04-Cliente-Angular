@@ -7,13 +7,19 @@ import { PruebaComponent } from './pages/prueba/prueba.component';
 
 const routes: Routes = [
   {
+    path: "",
+    redirectTo: "/bodegas",
+    pathMatch: "full"
+  },
+  
+  {
     path: 'bodegas',
     component: BodegasComponent
   },
   {
     path: '**',
     component: Pageabout404Component
-  },
+  }
 ];
 
 @NgModule({

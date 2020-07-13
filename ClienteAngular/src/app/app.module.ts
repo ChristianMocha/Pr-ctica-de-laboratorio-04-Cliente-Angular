@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { Pageabout404Component } from './pages/pageabout404/pageabout404.component'; */
 import { PagesModule } from './pages/pages.module';
 import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './service/data.service';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     PagesModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
