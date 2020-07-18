@@ -8,6 +8,12 @@ import { MicuentaComponent } from './pages/micuenta/micuenta.component'
 
 const routes: Routes = [
   {
+    path: "",
+    redirectTo: "/bodegas",
+    pathMatch: "full"
+  },
+  
+  {
     path: 'bodegas',
     component: BodegasComponent
   },
@@ -18,7 +24,7 @@ const routes: Routes = [
   {
     path: '**',
     component: Pageabout404Component
-  },
+  }
 ];
 
 @NgModule({
