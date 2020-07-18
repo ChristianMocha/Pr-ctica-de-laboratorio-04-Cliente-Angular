@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { Pageabout404Component } from './pages/pageabout404/pageabout404.component'; */
 import { PagesModule } from './pages/pages.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { VerticalnavComponent } from './components/verticalnav/verticalnav.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavigationComponent,
+    VerticalnavComponent,
     /* BodegasComponent,
     Pageabout404Component */
   ],
