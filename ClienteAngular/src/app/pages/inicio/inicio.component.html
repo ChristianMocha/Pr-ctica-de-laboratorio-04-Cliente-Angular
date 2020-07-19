@@ -1,0 +1,83 @@
+<br>
+
+<!-- Search form -->
+<div class="row">
+    <div class="search-product">
+        <input class="form-control" type="text" name="search" autocomplete="off" placeholder="Buscar Prodcuto"
+            [(ngModel)]="filterProducto">
+    </div>
+</div>
+<br>
+
+
+<div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4" *ngFor="let mensaje of productos | filter:filterProducto">
+        <!-- Card -->
+
+        <div class="card">
+            <!-- Card image -->
+
+            <div class="view overlay">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                    alt="Card image cap">
+
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <!-- Card content -->
+
+            <div class="card-body elegant-color white-text rounded-bottom">
+                <!-- Title -->
+
+                <h4 class="card-title">Nombre: {{mensaje.nombre}}</h4>
+
+                <hr class="hr-light">
+                <!-- Text -->
+
+                <p class="card-text">Categoria: {{mensaje.categoria.nombre}}</p>
+
+                <p class="card-text">Precio: {{mensaje.precio}}</p>
+
+
+
+
+                <button (click)="getDetallesProducto(mensaje.codigo)" style="color: deepskyblue;" type="button"
+                    class="btn btn-light-blue btn-md" data-toggle="modal"
+                    data-target="#basicExampleModal">Detalles</button>
+
+                <button style="color: deepskyblue;" type="button" class="btn btn-light-blue btn-md align-items-center"
+                    data-toggle="modal"><i class="fas fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <!-- Card -->
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div style="top: 10em;" class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div style=" background: linear-gradient(to bottom, 
+     rgba(0, 0, 0, 0.4),
+     rgba(0, 0, 0, 0.4),
+     rgba(0, 0, 0, 0.4));" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-white " style="margin-left: 9em;" id="exampleModalLabel">Detalles</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body ">
+
+                <p class="text-white">Descripcion:
+                    <!-- {{detallePro.precio}} --> <span class="text-muted"></span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>

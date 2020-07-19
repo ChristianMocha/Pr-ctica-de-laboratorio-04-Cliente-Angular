@@ -4,15 +4,19 @@ import { BodegasComponent } from './pages/bodegas/bodegas.component';
 import { Pageabout404Component } from './pages/pageabout404/pageabout404.component';
 import { PruebaComponent } from './pages/prueba/prueba.component';
 import { MicuentaComponent } from './pages/micuenta/micuenta.component'
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/bodegas",
+    redirectTo: "/inicio",
     pathMatch: "full"
   },
-  
+  {
+    path: 'inicio',
+    component: InicioComponent
+  },
   {
     path: 'bodegas',
     component: BodegasComponent
