@@ -8,7 +8,7 @@ import { Localidad } from '../models/Localidad';
 })
 export class UsuarioService {
 
-  api_url = 'http://localhost:8080/Practica3EJB_JSF_JPA/rest';
+  api_url = 'http://localhost:8080/Practica_3_EJB_JSF_JPA/rest';
 
   constructor(private http: HttpClient) { }
 
@@ -48,7 +48,7 @@ export class UsuarioService {
   putLocalidades(localidad:Localidad, id:number) {
     let headers = new HttpHeaders();
     headers= headers.set('content-type', 'application/json');
-    return this.http.put(`${this.api_url}/localidad/0106464456/${id}`, JSON.stringify(localidad), {headers});
+    return this.http.put(`${this.api_url}/localidad/editar/0106464456/${id}`, JSON.stringify(localidad), {headers});
   }
 
   deleteLocalidades(id:number) {

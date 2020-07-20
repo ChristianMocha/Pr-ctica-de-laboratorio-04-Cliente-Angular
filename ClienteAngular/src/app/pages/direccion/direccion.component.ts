@@ -41,6 +41,7 @@ export class DireccionComponent implements OnInit {
 
   ngOnInit(): void {
     this.localidades = this.usuarioService.getLocalidades();
+    console.log("localidades ", this.localidades)
   }
 
   resetForm() {
@@ -78,13 +79,13 @@ export class DireccionComponent implements OnInit {
         res => {
           //console.log(res)
           this.edit = true;
-          this.localidadID = res.codigo;
+           this.localidadID = res.codigo; 
           this.localidadForm.setValue({
-            pais: res.pais,
+             pais: res.pais,
             provincia: res.provincia,
             ciudad: res.ciudad,
             direccion: res.direccion,
-            telefono: res.telefono
+            telefono: res.telefono 
           });
         },
         err => console.error(err)

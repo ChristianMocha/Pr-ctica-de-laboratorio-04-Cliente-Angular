@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders, } from '@angular/common/http';
 })
 export class FacturaService {
 
-  api_url = 'http://localhost:8080/Practica3EJB_JSF_JPA/rest';
+  api_url = 'http://localhost:8080/Practica_3_EJB_JSF_JPA/rest';
 
 
 
