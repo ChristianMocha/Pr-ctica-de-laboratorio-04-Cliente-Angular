@@ -13,44 +13,47 @@
 <div class="row row-cols-1 row-cols-md-3">
     <div class="col mb-4" *ngFor="let mensaje of productos | filter:filterProducto">
         <!-- Card -->
+        <form (submit)="addCart(newNombre, newCategoria, newPrecio)">
+            <div class="card">
+                <!-- Card image -->
 
-        <div class="card">
-            <!-- Card image -->
+                <div class="view overlay">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                        alt="Card image cap">
 
-            <div class="view overlay">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
-                    alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
 
-                <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
+                <!-- Card content -->
+
+                <div class="card-body elegant-color white-text rounded-bottom">
+                    <!-- Title -->
+
+                    <h4 class="card-title text-center" >Nombre: <span #newNombre> {{mensaje.nombre}}</span> </h4>
+
+                    <hr class="hr-light">
+                    <!-- Text -->
+
+                    <p class="card-text text-center" >Categoria: <span #newCategoria >{{mensaje.categoria.nombre}}</span> </p>
+
+                    <p class="card-text text-center" >Precio: <span #newPrecio>{{mensaje.precio}}</span> </p>
+
+                   
+
+
+                    <button (click)="getDetallesProducto(mensaje.codigo)" style="color: deepskyblue;" type="button"
+                        class="btn btn-light-blue btn-md" data-toggle="modal"
+                        data-target="#basicExampleModal">Detalles</button>
+
+                    <button style="color: deepskyblue; " 
+                        class="btn btn-light-blue btn-md align-items-center" data-toggle="modal"><i
+                            class="fas fa-cart-plus"></i></button>
+
+                </div>
             </div>
-
-            <!-- Card content -->
-
-            <div class="card-body elegant-color white-text rounded-bottom">
-                <!-- Title -->
-
-                <h4 class="card-title">Nombre: {{mensaje.nombre}}</h4>
-
-                <hr class="hr-light">
-                <!-- Text -->
-
-                <p class="card-text">Categoria: {{mensaje.categoria.nombre}}</p>
-
-                <p class="card-text">Precio: {{mensaje.precio}}</p>
-
-
-
-
-                <button (click)="getDetallesProducto(mensaje.codigo)" style="color: deepskyblue;" type="button"
-                    class="btn btn-light-blue btn-md" data-toggle="modal"
-                    data-target="#basicExampleModal">Detalles</button>
-
-                <button style="color: deepskyblue;" type="button" class="btn btn-light-blue btn-md align-items-center"
-                    data-toggle="modal"><i class="fas fa-cart-plus"></i></button>
-            </div>
-        </div>
+        </form>
 
         <!-- Card -->
     </div>

@@ -43,7 +43,10 @@ export class InicioComponent implements OnInit {
     )
   }
 
-  
+  addCart(newNombre: HTMLSpanElement, newCategoria: HTMLSpanElement, newPrecio: HTMLSpanElement){
+    console.log("adding....", newNombre.textContent, newCategoria.textContent, newPrecio.textContent )
+    return false
+  }
 
   
 
