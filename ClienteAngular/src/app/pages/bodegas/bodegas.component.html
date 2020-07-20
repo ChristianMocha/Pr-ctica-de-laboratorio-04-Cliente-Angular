@@ -4,9 +4,10 @@
     <li class="list-group-item" *ngFor="let mensaje of mensajes | async">
         {{mensaje.nombre}}
     </li>
+</ul>
 </ul> -->
 
- <table class="table">
+<table class="table">
     <thead class="black white-text">
         <tr>
             <th scope="col">Id</th>
@@ -22,8 +23,8 @@
             <th scope="row">{{mensaje.codigo}}</th>
             <td>{{mensaje.nombre}}</td>
             <td>{{mensaje.precio}}</td>
-           
+
 
         </tr>
     </tbody>
-</table> 
+</table>

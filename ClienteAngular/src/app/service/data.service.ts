@@ -30,7 +30,6 @@ export class DataService {
     return this.http.get(`${this.URL_PRO}/${id}`);
   }
 
-
 }
 
  

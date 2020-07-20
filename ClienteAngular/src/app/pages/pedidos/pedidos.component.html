@@ -1,0 +1,110 @@
+<div class="container">
+    <h1>Pedidos</h1>
+    <div class="d-flex justify-content-between w-100 mb-5 mt-3">
+        <div>
+            <a class="btn text-primary" href="/mi-cuenta">Pedidos</a>
+            <a class="btn text-primary" href="/mi-cuenta/editar">Editar Cuenta</a>
+            <a class="btn text-primary" href="/mi-cuenta/direccion">Mis direcciones</a>
+        </div>
+
+    </div>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Iva</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Sub Total</th>
+                <th scope="col">Total</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let factura of facturas | async">
+                <tr *ngIf="factura.estado != 'cancelado'">
+                    <th scope="row">{{ factura.codigo }}</th>
+                    <td>{{ factura.fecha }}</td>
+                    <td>{{ factura.iva }}</td>
+                    <td>{{ factura.estado }}</td>
+                    <td>{{ factura.subTotal }}</td>
+                    <td>{{ factura.total }}</td>
+                    <td>
+                        <button (click)="getDetalles(factura.codigo)" type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal">Ver Detalle</button>
+                        <button *ngIf="factura.estado == 'pendiente'" (click)="setFacCode(factura.codigo)" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Cancelar Pedido</button>
+                    </td>
+                </tr>
+            </ng-container>
+
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalles de factura</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Percio Unitario</th>
+                                <th scope="col">categoria</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Sub Total</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let detalle of detalles | async">
+                                <th scope="row">{{ detalle.producto.nombre }}</th>
+                                <td>{{ detalle.producto.precio }}</td>
+                                <td>{{ detalle.producto.categoria.nombre }}</td>
+                                <td>{{ detalle.cantidad }}</td>
+                                <td>{{ detalle.subtotal }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cancelar Pedido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <p>Seguro que quiere cancelar su pedido?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" (click)="cancelarFactura()" data-dismiss="modal">Si, Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

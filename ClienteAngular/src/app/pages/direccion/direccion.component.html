@@ -1,0 +1,114 @@
+<div class="container">
+    <h1>Mis direciones</h1>
+    <div class="d-flex justify-content-between w-100 mb-5 mt-3">
+        <div>
+            <a class="btn text-primary" href="/mi-cuenta">Pedidos</a>
+            <a class="btn text-primary" href="/mi-cuenta/editar">Editar Cuenta</a>
+            <a class="btn text-primary" href="/mi-cuenta/direccion">Mis direcciones</a>
+        </div>
+        <button type="button" (click)="addMensajeHeader('Nueva Direccion', -1)" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal">
+            Agregar una direccion
+        </button>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Pais</th>
+                <th scope="col">Provincia</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">telefono</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let localidad of localidades | async">
+                <th>{{ localidad.pais }}</th>
+                <td>{{ localidad.provincia }}</td>
+                <td>{{ localidad.ciudad }}</td>
+                <td>{{ localidad.direccion }}</td>
+                <td>{{ localidad.telefono }}</td>
+                <td>
+                    <button type="button" (click)="addMensajeHeader('Editar Direccion', localidad.codigo)" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal">
+                        Editar
+                    </button>
+                    <button type="button" (click)="changeId(localidad.codigo)" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ mensaje }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="w-100" [formGroup]="localidadForm">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Pais</label>
+                            <input type="text" class="form-control" name="pais" formControlName="pais" [(ngModel)]="localidad.pais" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Provincia</label>
+                            <input type="text" class="form-control" name="provincia" formControlName="provincia" [(ngModel)]="localidad.provincia" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Ciudad</label>
+                            <input type="text" class="form-control" name="ciudad" formControlName="ciudad" [(ngModel)]="localidad.ciudad" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Direccion</label>
+                            <input type="text" class="form-control" name="direccion" formControlName="direccion" [(ngModel)]="localidad.direccion" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Telefono</label>
+                            <input type="text" class="form-control" name="telefono" formControlName="telefono" [(ngModel)]="localidad.telefono" required />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Cerrar
+                    </button>
+                    <button (click)="saveLocalidad()" type="button" class="btn btn-success" data-dismiss="modal">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cancelar Pedido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Seguro que quiere cancelar su pedido?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        Cerrar
+                    </button>
+                    <button type="button" class="btn btn-danger" (click)="deleteLocalidad()" data-dismiss="modal">
+                        Si, Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
