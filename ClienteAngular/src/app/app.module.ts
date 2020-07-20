@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 /* import { BodegasComponent } from './pages/bodegas/bodegas.component';
@@ -12,11 +13,13 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { VerticalnavComponent } from './components/verticalnav/verticalnav.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    VerticalnavComponent,
+    VerticalnavComponent
     /* BodegasComponent,
     Pageabout404Component */
   ],

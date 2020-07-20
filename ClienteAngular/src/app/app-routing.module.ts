@@ -8,15 +8,19 @@ import { PedidosComponent } from './pages/pedidos/pedidos.component'
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { DireccionComponent } from './pages/direccion/direccion.component'
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/bodegas",
+    redirectTo: "/inicio",
     pathMatch: "full"
   },
-  
+  {
+    path: 'inicio',
+    component: InicioComponent
+  },
   {
     path: 'bodegas',
     component: BodegasComponent

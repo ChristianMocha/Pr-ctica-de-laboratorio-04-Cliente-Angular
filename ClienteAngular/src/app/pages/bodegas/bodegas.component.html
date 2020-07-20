@@ -1,10 +1,30 @@
 <h1>Bodegas</h1>
 
-<ul class="list-group">
+<!-- <ul class="list-group">
     <li class="list-group-item" *ngFor="let mensaje of mensajes | async">
-        <h1>{{mensaje.id}}</h1>
-        <h2>{{mensaje.title}}</h2>
-
-        <p>{{mensaje.body}}</p>
+        {{mensaje.nombre}}
     </li>
 </ul>
+</ul> -->
+
+<table class="table">
+    <thead class="black white-text">
+        <tr>
+            <th scope="col">Id</th>
+
+            <th scope="col">Nombre P</th>
+
+            <th scope="col">Precio</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let mensaje of mensajes | async">
+            <th scope="row">{{mensaje.codigo}}</th>
+            <td>{{mensaje.nombre}}</td>
+            <td>{{mensaje.precio}}</td>
+
+
+        </tr>
+    </tbody>
+</table>

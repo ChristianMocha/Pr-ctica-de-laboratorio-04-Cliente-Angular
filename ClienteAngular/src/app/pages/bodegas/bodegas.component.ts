@@ -13,11 +13,12 @@ export class BodegasComponent implements OnInit {
   constructor(private dataservice: DataService) { }
 
   ngOnInit(): void {
+
     this.mensajes=this.dataservice.getBodegas();
-/*     .subscribe((bodegas: any[]) =>{
+     /* .subscribe((bodegas: any[]) =>{
       console.log(bodegas)
       this.mensajes=bodegas
-    }) */
+    })   */
   }
 
 }

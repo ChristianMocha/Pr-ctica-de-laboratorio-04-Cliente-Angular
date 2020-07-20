@@ -9,10 +9,17 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { DireccionComponent } from './direccion/direccion.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { FilterPipe } from './pipes/filter.pipe';
+
+
+
+
 
 
 @NgModule({
   declarations: [
+    InicioComponent,
     BodegasComponent,
     Pageabout404Component,
     PruebaComponent,
@@ -20,9 +27,12 @@ import { DireccionComponent } from './direccion/direccion.component';
     PedidosComponent,
     LoginComponent,
     RegistroComponent,
-    DireccionComponent
+    DireccionComponent,
+    FilterPipe
+    
   ],
   exports: [
+    InicioComponent,
     BodegasComponent,
     Pageabout404Component,
     PruebaComponent,
