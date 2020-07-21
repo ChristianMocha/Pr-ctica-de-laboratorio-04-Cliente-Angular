@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { BodegasComponent } from './bodegas/bodegas.component';
 import { Pageabout404Component } from './pageabout404/pageabout404.component';
 import { PruebaComponent } from './prueba/prueba.component';
 import { MicuentaComponent } from './micuenta/micuenta.component';
@@ -11,16 +10,13 @@ import { RegistroComponent } from './registro/registro.component';
 import { DireccionComponent } from './direccion/direccion.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FilterPipe } from './pipes/filter.pipe';
-
-
-
+import { CarritoComponent } from './carrito/carrito.component';
 
 
 
 @NgModule({
   declarations: [
     InicioComponent,
-    BodegasComponent,
     Pageabout404Component,
     PruebaComponent,
     MicuentaComponent,
@@ -28,12 +24,12 @@ import { FilterPipe } from './pipes/filter.pipe';
     LoginComponent,
     RegistroComponent,
     DireccionComponent,
-    FilterPipe
+    FilterPipe,
+    CarritoComponent
     
   ],
   exports: [
     InicioComponent,
-    BodegasComponent,
     Pageabout404Component,
     PruebaComponent,
     MicuentaComponent

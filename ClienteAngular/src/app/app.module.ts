@@ -10,7 +10,6 @@ import { Pageabout404Component } from './pages/pageabout404/pageabout404.compone
 import { PagesModule } from './pages/pages.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { VerticalnavComponent } from './components/verticalnav/verticalnav.component';
 
 
 
@@ -18,8 +17,7 @@ import { VerticalnavComponent } from './components/verticalnav/verticalnav.compo
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    VerticalnavComponent
+    NavigationComponent
     /* BodegasComponent,
     Pageabout404Component */
   ],
