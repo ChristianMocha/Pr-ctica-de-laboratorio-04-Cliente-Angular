@@ -52,7 +52,7 @@ export class DireccionComponent implements OnInit {
   saveLocalidad() {
     if (this.edit) {
 
-      this.usuarioService.putLocalidades(this.localidad, this.localidadID).subscribe(
+      this.usuarioService.postLocalidades(this.localidad).subscribe(
         res => {
           console.log(res)
         },
@@ -77,16 +77,16 @@ export class DireccionComponent implements OnInit {
     if (id != -1) {
       this.usuarioService.getLocalidad(id).subscribe(
         res => {
-          //console.log(res)
+          console.log(res)
           this.edit = true;
-          /* this.localidadID = res.codigo; 
+           this.localidadID = res.codigo; 
           this.localidadForm.setValue({
              pais: res.pais,
             provincia: res.provincia,
             ciudad: res.ciudad,
             direccion: res.direccion,
             telefono: res.telefono 
-          });*/
+          });
         },
         err => console.error(err)
       );

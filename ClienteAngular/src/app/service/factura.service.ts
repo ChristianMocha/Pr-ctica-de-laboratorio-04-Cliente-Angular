@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders, } from '@angular/common/http';
 })
 export class FacturaService {
 
-  api_url = 'http://localhost:8080/Practica_3_EJB_JSF_JPA/rest';
+  api_url = 'http://40.84.223.180/Practica_3_EJB_JSF_JPA-1.0/rest';
 
 
 
@@ -15,11 +15,11 @@ export class FacturaService {
 
 
   getFacturas() {
-    return this.http.get(`${this.api_url}/factura/0106464456`);
+    return this.http.get(`${this.api_url}/factura/0123023203`);
   }
 
   setFactura() {
-    return this.http.get(`${this.api_url}/factura/0106464456`);
+    return this.http.get(`${this.api_url}/factura/0123023203`);
   }
 
   getDetalles(id: number) {

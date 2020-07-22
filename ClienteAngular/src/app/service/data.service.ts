@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class DataService {
 
   producto: Observable<any>;
-  URL_PRO = 'http://localhost:8080/Practica_3_EJB_JSF_JPA/rest/productos';
+  URL_PRO = 'http://40.84.223.180/Practica_3_EJB_JSF_JPA-1.0/rest/productos';
 
   constructor(private http: HttpClient) { }
 
