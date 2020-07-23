@@ -52,7 +52,7 @@ export class DireccionComponent implements OnInit {
   saveLocalidad() {
     if (this.edit) {
 
-      this.usuarioService.postLocalidades(this.localidad).subscribe(
+      this.usuarioService.putLocalidades(this.localidad, this.localidadID).subscribe(
         res => {
           console.log(res)
         },
@@ -61,7 +61,7 @@ export class DireccionComponent implements OnInit {
 
       this.resetForm()
     } else {
-      this.usuarioService.postLocalidades(this.localidad).subscribe(
+      this.usuarioService.putLocalidades(this.localidad, this.localidadID).subscribe(
         res => {
           console.log(res)
         },
@@ -73,19 +73,30 @@ export class DireccionComponent implements OnInit {
   }
 
   addMensajeHeader(msj: string, id: number) {
+    console.log("Entrando al metodo de editar y agregar ", msj, id)
     this.mensaje = msj;
     if (id != -1) {
       this.usuarioService.getLocalidad(id).subscribe(
         res => {
           console.log(res)
           this.edit = true;
-           this.localidadID = res.codigo; 
+
+          this.localidadID = res['codigo'];
+          console.log("localidad ", this.localidadID)
+          /*            this.localidadID = res.codigo;  */
+
           this.localidadForm.setValue({
-             pais: res.pais,
+            pais: res['pais'],
+            provincia: res['provincia'],
+            ciudad: res['ciudad'],
+            direccion: res['direccion'],
+            telefono: res['telefono']
+
+            /*  pais: res.pais,
             provincia: res.provincia,
             ciudad: res.ciudad,
             direccion: res.direccion,
-            telefono: res.telefono 
+            telefono: res.telefono  */
           });
         },
         err => console.error(err)
@@ -96,11 +107,11 @@ export class DireccionComponent implements OnInit {
     }
   }
 
-  changeId(id:number){
+  changeId(id: number) {
     this.localidadID = id;
   }
 
-  deleteLocalidad(){
+  deleteLocalidad() {
     this.usuarioService.deleteLocalidades(this.localidadID).subscribe(
       res => {
         console.log(res)
